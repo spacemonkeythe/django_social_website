@@ -26,7 +26,9 @@ SECRET_KEY = 'r_c94-m*fx$*uo3z6w3ng9pco*udf#@i&8p%568*1yw8$dq3sa'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'mysite.com'
+]
 
 
 # Application definition
@@ -39,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social.apps.django_app.default'
 ]
 
 MIDDLEWARE = [
@@ -104,11 +107,15 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
+    'social.backends.facebook.FacebookOAuth2',
 )
 
 LOGIN_REDIRECT_URL = reverse_lazy('dashboard')
 LOGIN_URL = reverse_lazy('login')
 LOGOUT_URL = reverse_lazy('logout')
+
+SOCIAL_AUTH_FACEBOOK_KEY = 'xxx'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'xxx'
 
 
 # Internationalization
