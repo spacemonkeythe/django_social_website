@@ -26,5 +26,5 @@ class Image(models.Model):
 
             super(Image, self).save(*args, **kwargs)
 
-    # def get_absolute_url(self):
-    #     return reverse('images:image_create', args=[self.id, self.slug])
+    def get_absolute_url(self):
+        return reverse('images:image_create', args=[self.id, self.slug])
