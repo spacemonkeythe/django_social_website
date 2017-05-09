@@ -28,7 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'mysite.com',
-    '127.0.0.1' 
+    '127.0.0.1',
+    'localhost'
 ]
 
 
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #'social.apps.django_app.default',
     'images',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [
