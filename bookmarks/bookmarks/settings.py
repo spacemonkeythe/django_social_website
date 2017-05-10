@@ -151,3 +151,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: reverse_lazy('user_detail', args=[u.username])
+}
