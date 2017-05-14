@@ -11,6 +11,7 @@ from django.views.decorators.http import require_POST
 from common.decorators import ajax_required
 from .models import Contact
 from actions.utils import create_action
+from actions.models import Action
 
 def user_login(request):
     if request.method == 'POST':
@@ -35,8 +36,8 @@ def dashboard(request):
     actions = Action.objects.exclude(user=request.user)
     follownig_ids = request.user.following.values_list('id', flat=True)
 
-    if following_ids:
-        actions = actions.filter(user_id__in=following_ids)\
+    if follownig_ids:
+        actions = actions.filter(user_id__in=follownig_ids)\
                         .select_related('user', 'user__profile')\
                         .prefetch_related('target')
 
