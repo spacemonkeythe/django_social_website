@@ -1,4 +1,4 @@
-import dateteime
+import datetime
 from django.utils import timezone
 from django.contrib.contenttypes.models import ContentType
 from .models import Action
@@ -9,7 +9,7 @@ def create_action(user, verb, target=None):
 
     similar_actions = Action.objects.filter(user_id=user.id,
                                             verb=verb,
-                                            timestamp=__gte=last_minute)
+                                            timestamp__gte=last_minute)
 
     if target:
         target_ct = ContentType.objects.get_for_model(target)
